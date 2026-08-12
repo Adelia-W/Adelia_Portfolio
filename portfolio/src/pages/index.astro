@@ -1,11 +1,145 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+const projects = [
+  {
+    title: "Dalkom Pretzel Cafe",
+    year: "2024",
+    tags: ["Branding", "Social Media", "Packaging"],
+    description:
+      "A playful brand identity inspired by sweet pretzel snacks and warm, friendly mascots.",
+    link: "#", // replace with your project page or Behance link
+  },
+  {
+    title: "Interactive Learning Hub",
+    year: "2025",
+    tags: ["Web", "UX & UI", "Education"],
+    description:
+      "A JupyterLite-based learning environment with custom branding and accessible layouts.",
+    link: "#",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <title>Adelia Widyasari · Portfolio</title>
+    <meta
+      name="description"
+      content="Tech + graphic design portfolio by Adelia Widyasari."
+    />
+  </head>
+  <body class="page">
+    <!-- Hero board -->
+    <main class="layout">
+      <section class="board board-hero">
+        <header class="board-header">
+          <div class="board-title-group">
+            <h1 class="brand-name">Adelia Widyasari</h1>
+            <span class="brand-year">2024–2026</span>
+          </div>
+
+          <div class="board-tags">
+            <span class="tag-pill">Branding</span>
+            <span class="tag-pill">UX & UI</span>
+            <span class="tag-pill">Interactive</span>
+            <span class="tag-pill">Education</span>
+          </div>
+        </header>
+
+        <p class="brand-intro">
+          I’m a tech + graphic designer creating playful, accessible digital
+          experiences for learning, community, and small brands.
+        </p>
+
+        <div class="tools-note">
+          <h2 class="tools-title">Tools Used</h2>
+          <ul class="tools-list">
+            <li>Astro</li>
+            <li>Figma</li>
+            <li>Adobe Illustrator</li>
+            <li>Adobe Photoshop</li>
+            <li>Python</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Featured projects board -->
+      <section class="board board-projects">
+        <header class="board-section-header">
+          <h2 class="section-title">Selected Projects</h2>
+          <div class="section-filters">
+            <span class="tag-pill">Branding</span>
+            <span class="tag-pill">Web</span>
+            <span class="tag-pill">Illustration</span>
+            <span class="tag-pill">Data Viz</span>
+          </div>
+        </header>
+
+        <div class="projects-grid">
+          {projects.map((project) => (
+            <article class="project-card">
+              <header class="project-header">
+                <div class="project-title-group">
+                  <h3 class="project-title">{project.title}</h3>
+                  <span class="project-year">{project.year}</span>
+                </div>
+                <div class="project-tags">
+                  {project.tags.map((tag) => (
+                    <span class="tag-pill tag-small">{tag}</span>
+                  ))}
+                </div>
+              </header>
+
+              <div class="project-thumbnail">
+                <!-- Replace with an <img> pointing to your artwork -->
+                <div class="thumbnail-placeholder">
+                  <span>Project preview</span>
+                </div>
+              </div>
+
+              <p class="project-description">{project.description}</p>
+
+              <a href={project.link} class="project-link">
+                View case study
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- About panel -->
+      <aside class="board board-about">
+        <h2 class="section-title">About</h2>
+        <p class="about-text">
+          I blend software development, data, and graphic design to build
+          inclusive educational platforms, brand identities, and interactive
+          experiences. I love designing for underrepresented communities and
+          helping people learn through playful visuals.
+        </p>
+        <div class="skills-list">
+          <span class="tag-pill tag-small">Astro</span>
+          <span class="tag-pill tag-small">Brand Identity</span>
+          <span class="tag-pill tag-small">UX & UI</span>
+          <span class="tag-pill tag-small">Workshop Design</span>
+        </div>
+        <a href="#contact" class="primary-button">Say hello</a>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="footer-inner">
+        <span>© {new Date().getFullYear()} Adelia Widyasari</span>
+        <nav class="footer-links">
+          <a href="https://www.behance.net/adelia_widyasari" target="_blank"
+            >Behance</a
+          >
+          <a href="https://github.com/AWZO" target="_blank">GitHub</a>
+          <!-- Add other links here -->
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
