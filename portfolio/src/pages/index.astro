@@ -3,11 +3,17 @@ import "../styles/global.css";
 
 const projects = [
   {
-    title: "Interactive Learning Hub",
-    year: "2026",
-    tags: ["Web", "UX & UI", "Education"],
+    title: "She Codes Australia",
+    year: "2025-Present",
     description:
-      "A JupyterLite-based learning environment with custom branding and accessible layouts.",
+      "-",
+    link: "#",
+  },
+  {
+    title: "Day of AI Australia",
+    year: "2025-Present",
+    description:
+      "-",
     link: "#",
   },
 ];
@@ -46,8 +52,7 @@ const projects = [
 				</header>
 
 				<p class="brand-intro">
-				Tech + graphic designer creating playful, accessible digital
-				experiences for learning, community, and small brands.
+				She Codes Australia | Day of AI Australia | Computer Science Student and Graphic Designer
 				</p>
 
 				<div class="photo-widget">
@@ -62,7 +67,7 @@ const projects = [
 			<!-- Featured projects board -->
 			<section class="board board-projects" id="projects">
 				<header class="board-section-header">
-				<h2 class="section-title">Selected Projects</h2>
+				<h2 class="section-title">Work</h2>
 				<div class="section-filters">
 					<span class="tag-pill">Coding</span>
 					<span class="tag-pill">Web Design</span>
@@ -79,11 +84,6 @@ const projects = [
 						<h3 class="project-title">{project.title}</h3>
 						<span class="project-year">{project.year}</span>
 						</div>
-						<div class="project-tags">
-						{project.tags.map((tag) => (
-							<span class="tag-pill tag-small">{tag}</span>
-						))}
-						</div>
 					</header>
 
 					<div class="project-thumbnail">
@@ -95,7 +95,7 @@ const projects = [
 					<p class="project-description">{project.description}</p>
 
 					<a href={project.link} class="project-link">
-						View case study
+						View project
 					</a>
 					</article>
 				))}
@@ -106,25 +106,16 @@ const projects = [
 			<aside class="board board-about" id="about">
 				<h2 class="section-title">About</h2>
 				<p class="about-text">
-				I blend software development, data, and graphic design to build
-				inclusive educational platforms, brand identities, and interactive
-				experiences. I love designing for underrepresented communities and
-				helping people learn through playful visuals.
+				miao
 				</p>
-				<div class="skills-list">
-				<span class="tag-pill tag-small">Astro</span>
-				<span class="tag-pill tag-small">Brand Identity</span>
-				<span class="tag-pill tag-small">UX & UI</span>
-				<span class="tag-pill tag-small">Workshop Design</span>
-				</div>
-				<a href="#contact" class="primary-button">Say hello</a>
+				<span><a href="#contact" class="primary-button">Say hello</a></span>
 			</aside>
 			</main>
 
 			<!-- Footer inside main page -->
 			<footer class="footer" id="contact">
 			<div class="footer-inner">
-				<span>© {new Date().getFullYear()} Adelia Widyasari</span>
+				<span>{new Date().getFullYear()} Adelia Widyasari</span>
 				<nav class="footer-links">
 				<a href="https://www.behance.net/adelia_widyasari" target="_blank"
 					>Behance</a

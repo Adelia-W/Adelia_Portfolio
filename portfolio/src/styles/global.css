@@ -4,7 +4,7 @@
   --panel-strong: #fff2df;
   --text: #2f241f;
   --blue: #2c4fb5;
-  --coral: #f37d5f;
+  --coral: #905e9d;
   --yellow: #ffd06a;
   --border: #7b5d4a;
   --shadow: 0 10px 0 rgba(123, 93, 74, 0.15);
@@ -74,24 +74,6 @@ body {
   display: grid;
   gap: 24px;
   width: 100%;
-}
-
-/* Projects layout closer to old view */
-.projects-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 480px) 1fr;
-  gap: 20px;
-  align-items: start;
-}
-
-.project-card--featured {
-  max-width: 480px;
-}
-
-/* Inner layout inside the page */
-.layout {
-  display: grid;
-  gap: 24px;
 }
 
 /* Boards */
@@ -205,11 +187,18 @@ body {
   padding-left: 20px;
 }
 
-/* Projects */
 .projects-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+  align-items: start;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-card {
@@ -248,8 +237,8 @@ body {
   margin-top: 10px;
   padding: 12px 18px;
   border-radius: 999px;
-  background: var(--blue);
-  color: white;
+  background: #517eb2;
+  color: #fff;
   text-decoration: none;
   font-weight: 700;
   border: 2px solid var(--border);
@@ -294,7 +283,7 @@ body {
   content: "";
   position: absolute;
   inset: 0 8px 0 6px;
-  background: linear-gradient(180deg, #f4dfc1 0%, #efd7b6 100%);
+  background: linear-gradient(180deg, #e9b498 0%, #efd7b6 100%);
   border: 2px solid var(--border);
   border-right: none;
   border-radius: 24px 0 0 24px;
@@ -339,7 +328,8 @@ body {
 }
 
 .left-tab--active {
-  background: #c9d8ea;
+  background: #a7c0df;
+  color: #394a5e;
   font-weight: 800;
   box-shadow: 4px 4px 0 rgba(123, 93, 74, 0.2);
   transform: none;
@@ -352,7 +342,7 @@ body {
 
 
 .left-tab:hover {
-  background: #ffe9c7;
+  background: #dbebfe;
   transform: translateX(4px);
   z-index: 3;
 }
