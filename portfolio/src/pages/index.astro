@@ -1,19 +1,10 @@
 ---
 import "../styles/global.css";
----
 
 const projects = [
   {
-    title: "Dalkom Pretzel Cafe",
-    year: "2024",
-    tags: ["Branding", "Social Media", "Packaging"],
-    description:
-      "A playful brand identity inspired by sweet pretzel snacks and warm, friendly mascots.",
-    link: "#", // replace with your project page or Behance link
-  },
-  {
     title: "Interactive Learning Hub",
-    year: "2025",
+    year: "2026",
     tags: ["Web", "UX & UI", "Education"],
     description:
       "A JupyterLite-based learning environment with custom branding and accessible layouts.",
@@ -31,25 +22,38 @@ const projects = [
     />
   </head>
   <body class="page">
+  	<!-- Folder side nav -->
+    <aside class="folder-nav">
+    <div class="folder-stack">
+    	<div class="folder-tab folder-tab--top"></div>
+        <div class="folder-tab folder-tab--middle"></div>
+    	<div class="folder-tab folder-tab--bottom"></div>
+    </div>
+
+    <div class="folder-body">
+        <h2 class="folder-title">Sections</h2>
+        <nav class="folder-list">
+        <a href="#hero" class="folder-link">Overview</a>
+        <a href="#projects" class="folder-link">Selected Work</a>
+        <a href="#about" class="folder-link">About</a>
+        <a href="#contact" class="folder-link">Contact</a>
+        </nav>
+    </div>
+    </aside>
+
+	
     <!-- Hero board -->
     <main class="layout">
       <section class="board board-hero">
         <header class="board-header">
           <div class="board-title-group">
             <h1 class="brand-name">Adelia Widyasari</h1>
-            <span class="brand-year">2024–2026</span>
           </div>
 
-          <div class="board-tags">
-            <span class="tag-pill">Branding</span>
-            <span class="tag-pill">UX & UI</span>
-            <span class="tag-pill">Interactive</span>
-            <span class="tag-pill">Education</span>
-          </div>
         </header>
 
         <p class="brand-intro">
-          I’m a tech + graphic designer creating playful, accessible digital
+          Tech + graphic designer creating playful, accessible digital
           experiences for learning, community, and small brands.
         </p>
 
@@ -70,10 +74,10 @@ const projects = [
         <header class="board-section-header">
           <h2 class="section-title">Selected Projects</h2>
           <div class="section-filters">
-            <span class="tag-pill">Branding</span>
-            <span class="tag-pill">Web</span>
-            <span class="tag-pill">Illustration</span>
-            <span class="tag-pill">Data Viz</span>
+            <span class="tag-pill">Coding</span>
+            <span class="tag-pill">Web Design</span>
+            <span class="tag-pill">Graphic Design</span>
+            <span class="tag-pill">Photography</span>
           </div>
         </header>
 
