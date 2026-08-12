@@ -22,120 +22,109 @@ const projects = [
     />
   </head>
   <body class="page">
-  	<!-- Folder side nav -->
-    <aside class="folder-nav">
-    <div class="folder-stack">
-    	<div class="folder-tab folder-tab--top"></div>
-        <div class="folder-tab folder-tab--middle"></div>
-    	<div class="folder-tab folder-tab--bottom"></div>
-    </div>
+	<div class="shell">
+		<!-- Folder side nav -->
+		<nav class="left-tabs">
+			<a class="left-tab left-tab--active" href="#hero">Home</a>
+			<a class="left-tab" href="#projects">Work</a>
+			<a class="left-tab" href="#about">About</a>
+			<a class="left-tab" href="#contact">Contact</a>
+		</nav>
+		
+		<!-- Hero board -->
+		<main class="layout">
+		<section class="board board-hero">
+			<header class="board-header">
+			<div class="board-title-group">
+				<h1 class="brand-name">Adelia Widyasari</h1>
+			</div>
 
-    <div class="folder-body">
-        <h2 class="folder-title">Sections</h2>
-        <nav class="folder-list">
-        <a href="#hero" class="folder-link">Overview</a>
-        <a href="#projects" class="folder-link">Selected Work</a>
-        <a href="#about" class="folder-link">About</a>
-        <a href="#contact" class="folder-link">Contact</a>
-        </nav>
-    </div>
-    </aside>
+			</header>
 
-	
-    <!-- Hero board -->
-    <main class="layout">
-      <section class="board board-hero">
-        <header class="board-header">
-          <div class="board-title-group">
-            <h1 class="brand-name">Adelia Widyasari</h1>
-          </div>
+			<p class="brand-intro">
+			Tech + graphic designer creating playful, accessible digital
+			experiences for learning, community, and small brands.
+			</p>
 
-        </header>
+			<div class="tools-note">
+			<h2 class="tools-title">Tools Used</h2>
+			<ul class="tools-list">
+				<li>Astro</li>
+				<li>Canva</li>
+				<li>Adobe Lightroom</li>
+				<li>Python</li>
+			</ul>
+			</div>
+		</section>
 
-        <p class="brand-intro">
-          Tech + graphic designer creating playful, accessible digital
-          experiences for learning, community, and small brands.
-        </p>
+		<!-- Featured projects board -->
+		<section class="board board-projects">
+			<header class="board-section-header">
+			<h2 class="section-title">Selected Projects</h2>
+			<div class="section-filters">
+				<span class="tag-pill">Coding</span>
+				<span class="tag-pill">Web Design</span>
+				<span class="tag-pill">Graphic Design</span>
+				<span class="tag-pill">Photography</span>
+			</div>
+			</header>
 
-        <div class="tools-note">
-          <h2 class="tools-title">Tools Used</h2>
-          <ul class="tools-list">
-            <li>Astro</li>
-            <li>Figma</li>
-            <li>Adobe Illustrator</li>
-            <li>Adobe Photoshop</li>
-            <li>Python</li>
-          </ul>
-        </div>
-      </section>
+			<div class="projects-grid">
+			{projects.map((project) => (
+				<article class="project-card">
+				<header class="project-header">
+					<div class="project-title-group">
+					<h3 class="project-title">{project.title}</h3>
+					<span class="project-year">{project.year}</span>
+					</div>
+					<div class="project-tags">
+					{project.tags.map((tag) => (
+						<span class="tag-pill tag-small">{tag}</span>
+					))}
+					</div>
+				</header>
 
-      <!-- Featured projects board -->
-      <section class="board board-projects">
-        <header class="board-section-header">
-          <h2 class="section-title">Selected Projects</h2>
-          <div class="section-filters">
-            <span class="tag-pill">Coding</span>
-            <span class="tag-pill">Web Design</span>
-            <span class="tag-pill">Graphic Design</span>
-            <span class="tag-pill">Photography</span>
-          </div>
-        </header>
+				<div class="project-thumbnail">
+					<!-- Replace with an <img> pointing to your artwork -->
+					<div class="thumbnail-placeholder">
+					<span>Project preview</span>
+					</div>
+				</div>
 
-        <div class="projects-grid">
-          {projects.map((project) => (
-            <article class="project-card">
-              <header class="project-header">
-                <div class="project-title-group">
-                  <h3 class="project-title">{project.title}</h3>
-                  <span class="project-year">{project.year}</span>
-                </div>
-                <div class="project-tags">
-                  {project.tags.map((tag) => (
-                    <span class="tag-pill tag-small">{tag}</span>
-                  ))}
-                </div>
-              </header>
+				<p class="project-description">{project.description}</p>
 
-              <div class="project-thumbnail">
-                <!-- Replace with an <img> pointing to your artwork -->
-                <div class="thumbnail-placeholder">
-                  <span>Project preview</span>
-                </div>
-              </div>
+				<a href={project.link} class="project-link">
+					View case study
+				</a>
+				</article>
+			))}
+			</div>
+		</section>
 
-              <p class="project-description">{project.description}</p>
-
-              <a href={project.link} class="project-link">
-                View case study
-              </a>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <!-- About panel -->
-      <aside class="board board-about">
-        <h2 class="section-title">About</h2>
-        <p class="about-text">
-          I blend software development, data, and graphic design to build
-          inclusive educational platforms, brand identities, and interactive
-          experiences. I love designing for underrepresented communities and
-          helping people learn through playful visuals.
-        </p>
-        <div class="skills-list">
-          <span class="tag-pill tag-small">Astro</span>
-          <span class="tag-pill tag-small">Brand Identity</span>
-          <span class="tag-pill tag-small">UX & UI</span>
-          <span class="tag-pill tag-small">Workshop Design</span>
-        </div>
-        <a href="#contact" class="primary-button">Say hello</a>
-      </aside>
-    </main>
+		<!-- About panel -->
+		<aside class="board board-about">
+			<h2 class="section-title">About</h2>
+			<p class="about-text">
+			I blend software development, data, and graphic design to build
+			inclusive educational platforms, brand identities, and interactive
+			experiences. I love designing for underrepresented communities and
+			helping people learn through playful visuals.
+			</p>
+			<div class="skills-list">
+			<span class="tag-pill tag-small">Astro</span>
+			<span class="tag-pill tag-small">Brand Identity</span>
+			<span class="tag-pill tag-small">UX & UI</span>
+			<span class="tag-pill tag-small">Workshop Design</span>
+			</div>
+			<a href="#contact" class="primary-button">Say hello</a>
+		</aside>
+		</main>
+	</div>
 
     <!-- Footer -->
     <footer class="footer" id="contact">
       <div class="footer-inner">
-        <span>© {new Date().getFullYear()} Adelia Widyasari</span>
+        <span>{new Date().getFullYear()} Adelia Widyasari</span>
         <nav class="footer-links">
           <a href="https://www.behance.net/adelia_widyasari" target="_blank"
             >Behance</a

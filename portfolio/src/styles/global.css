@@ -235,110 +235,139 @@ body {
 }
 
 
+/* Overall layout with left file sidebar + main content */
 .shell {
   width: min(1200px, calc(100% - 32px));
-  margin: 32px auto 24px;
+  margin: 28px auto 24px;
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 20px;
+  align-items: flex-start;
 }
 
-/* Folder nav */
-.folder-nav {
-  position: relative;
-  align-self: flex-start;
-}
-
-.folder-stack {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.folder-tab {
-  position: absolute;
-  left: 0;
-  width: 72%;
-  height: 22px;
-  border-radius: 14px 14px 0 0;
-  background: #f4cfa0;
+/* File body behind tabs */
+.left-tabs {
+  position: sticky;
+  top: 24px;
+  width: 140px;
+  padding: 18px 14px 16px 16px;
+  background: linear-gradient(180deg, #f4dfc1 0%, #efd7b6 100%);
   border: 2px solid var(--border);
-  box-shadow: 0 4px 0 rgba(123, 93, 74, 0.15);
-}
-
-.folder-tab--top {
-  top: -6px;
-  background: #f4cfa0;
-}
-
-.folder-tab--middle {
-  top: 10px;
-  background: #f8daa9;
-}
-
-.folder-tab--bottom {
-  top: 26px;
-  background: #fbebc4;
-}
-
-/* The body of the folder */
-.folder-body {
-  position: relative;
-  margin-top: 40px;
-  padding: 18px 16px 20px;
-  background: var(--panel-strong);
-  border-radius: 18px;
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow);
-}
-
-.folder-title {
-  margin: 0 0 12px;
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
-}
-
-.folder-list {
+  border-radius: 24px 0 0 24px;
+  box-shadow: 6px 6px 0 rgba(123, 93, 74, 0.14);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0;
+  overflow: visible;
 }
 
-.folder-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 12px;
+/* Inner paper layer to make it feel enclosed */
+.left-tabs::after {
+  content: "";
+  position: absolute;
+  inset: 10px 4px 10px 10px;
+  border-radius: 20px 0 0 20px;
+  border: 2px solid rgba(123, 93, 74, 0.18);
+  background: rgba(255, 248, 239, 0.55);
+  z-index: -1;
+}
+
+/* Top folder flap */
+.left-tabs::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 18px;
+  width: 72px;
+  height: 16px;
+  border: 2px solid var(--border);
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  background: #edd2ab;
+  box-shadow: 4px 0 0 rgba(123, 93, 74, 0.08);
+}
+
+/* Individual divider tabs */
+.left-tab {
+  position: relative;
+  width: 104px;
+  height: 64px;
+  margin-left: -4px;
+  border-radius: 0 18px 18px 0; /* curve on the right edge */
+  border: 2px solid var(--border);
+  border-left: none;
+  background: #f7e3c6;
+  box-shadow: 3px 3px 0 rgba(123, 93, 74, 0.16);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
   text-decoration: none;
   color: var(--text);
-  font-weight: 600;
-  background: #fffdf8;
-  border: 2px solid transparent;
-}
-
-.folder-link::before {
-  content: "▸";
   font-size: 0.9rem;
-  color: var(--coral);
 }
 
-.folder-link:hover {
-  border-color: var(--coral);
-  background: #fff4ea;
+/* Stacked effect */
+.left-tab + .left-tab {
+  margin-top: -6px;
 }
 
-/* Responsive: move folder nav on small screens */
+/* Active tab (current section) */
+.left-tab--active {
+  background: #c9d8ea;
+  transform: translateX(6px);
+  z-index: 2;
+  box-shadow: 5px 5px 0 rgba(123, 93, 74, 0.2);
+}
+
+/* Hover effect */
+.left-tab:hover {
+  background: #ffe9c7;
+  transform: translateX(3px);
+  z-index: 2;
+}
+
+/* Small decorative line to feel like a divider label strip */
+.left-tab::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 22px;
+  height: 2px;
+  transform: translateY(-50%);
+  background: rgba(123, 93, 74, 0.22);
+  border-radius: 999px;
+}
+
+/* Optional: narrow layout on small screens */
 @media (max-width: 800px) {
   .shell {
     grid-template-columns: 1fr;
   }
 
-  .folder-nav {
-    order: -1;
+  .left-tabs {
+    position: static;
+    width: auto;
+    margin-bottom: 12px;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 24px;
   }
 
-  .folder-body {
-    margin-top: 24px;
+  .left-tabs::before,
+  .left-tabs::after {
+    display: none;
+  }
+
+  .left-tab {
+    width: auto;
+    height: 44px;
+    margin-left: 0;
+    border-radius: 999px;
+  }
+
+  .left-tab + .left-tab {
+    margin-top: 0;
+    margin-left: 8px;
   }
 }
