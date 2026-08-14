@@ -1,13 +1,14 @@
 ---
 import "../styles/global.css";
 
+
 const projects = [
   {
     title: "She Codes Australia",
     year: "2025-Present",
 	thumbnail: "/public/thumbnails/she_codes.jpg",
     description:
-      "-",
+      "Role: Assistant and Organiser",
     link: "#",
   },
   {
@@ -15,7 +16,7 @@ const projects = [
     year: "2025-Present",
 	thumbnail: "/public/thumbnails/doai.jpg",
     description:
-      "-",
+      "Role: Teacher and Outreach Coordinator",
     link: "#",
   },
   {
@@ -23,7 +24,7 @@ const projects = [
     year: "2024-2026",
 	thumbnail: "/public/thumbnails/CASSA.jpg",
     description:
-      "-",
+      "Role: Treasurer and Marketing Coordinator",
     link: "#",
   },
   {
@@ -31,7 +32,7 @@ const projects = [
     year: "2024-Present",
 	thumbnail: "/public/thumbnails/photography.jpg",
     description:
-      "-",
+      "Role: Photographer and Editor - Freelance",
     link: "#",
   },
   {
@@ -39,7 +40,7 @@ const projects = [
     year: "2023-Present",
 	thumbnail: "/public/thumbnails/graphic_design.jpg",
     description:
-      "-",
+      "Role: Graphic Designer - Freelance",
     link: "#",
   },
 ];
@@ -85,6 +86,8 @@ const projects = [
 					<img
 						src = "/adelia_pfp.jpg"
 						alt = "Adelia Widyasari"
+						width= ""
+						height= ""
 						class = "photo-widget__img"
 					/>
 					<div class = "paperclip-widget">
@@ -111,39 +114,40 @@ const projects = [
 				</div>
 				</header>
 
-				<div class="projects-carousel" data-carousel>
+				<div class = "carousel-shell" data-carousel>
 					<button type="button" class="carousel-nav carousel-nav--left" data-prev></button>
+					<div class="projects-carousel">
+						<div class="projects-carousel__viewport">
+							<div class="projects-carousel__track">
+								{projects.map((project, index) => (
+								<article
+									class="project-card carousel-slide"
+									data-slide-index={index}>
+									<header class="project-header">
+									<div class="project-title-group">
+										<h3 class="project-title">{project.title}</h3>
+										<span class="project-year">{project.year}</span>
+									</div>
+									</header>
 
-					<div class="projects-carousel__track">
-						{projects.map((project, index) => (
-						<article
-							class="project-card carousel-slide"
-							data-slide-index={index}
-						>
-							<header class="project-header">
-							<div class="project-title-group">
-								<h3 class="project-title">{project.title}</h3>
-								<span class="project-year">{project.year}</span>
+									<div class="project-thumbnail">
+									<img
+										src={project.thumbnail}
+										alt={project.title}
+										class="project-thumbnail__img"
+									/>
+									</div>
+
+									<p class="project-description">{project.description}</p>
+
+									<a href={project.link} class="project-link">
+									View More
+									</a>
+								</article>
+								))}
 							</div>
-							</header>
-
-							<div class="project-thumbnail">
-							<img
-								src={project.thumbnail}
-								alt={project.title}
-								class="project-thumbnail__img"
-							/>
-							</div>
-
-							<p class="project-description">{project.description}</p>
-
-							<a href={project.link} class="project-link">
-							View project
-							</a>
-						</article>
-						))}
+						</div>
 					</div>
-
 					<button type="button" class="carousel-nav carousel-nav--right" data-next></button>
 				</div>
 
