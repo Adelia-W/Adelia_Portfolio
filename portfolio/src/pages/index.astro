@@ -5,6 +5,7 @@ const projects = [
   {
     title: "She Codes Australia",
     year: "2025-Present",
+	thumbnail: "/public/thumbnails/she_codes.jpg",
     description:
       "-",
     link: "#",
@@ -12,6 +13,31 @@ const projects = [
   {
     title: "Day of AI Australia",
     year: "2025-Present",
+	thumbnail: "/public/thumbnails/doai.jpg",
+    description:
+      "-",
+    link: "#",
+  },
+  {
+    title: "CASSA",
+    year: "2024-2026",
+	thumbnail: "/public/thumbnails/CASSA.jpg",
+    description:
+      "-",
+    link: "#",
+  },
+  {
+    title: "Photography",
+    year: "2024-Present",
+	thumbnail: "/public/thumbnails/photography.jpg",
+    description:
+      "-",
+    link: "#",
+  },
+  {
+    title: "Graphic Design",
+    year: "2023-Present",
+	thumbnail: "/public/thumbnails/graphic_design.jpg",
     description:
       "-",
     link: "#",
@@ -19,108 +45,190 @@ const projects = [
 ];
 ---
 
-<html lang="en">
+<html lang = "en">
   <head>
-    <title>Adelia Widyasari · Portfolio</title>
+    <title>Adelia Widyasari - Portfolio</title>
     <meta
-      name="description"
-      content="Tech + graphic design portfolio by Adelia Widyasari."
+      name = "description"
+      content = "Tech + graphic design portfolio by Adelia Widyasari."
     />
   </head>
-	<body class="page">
-	<div class="shell">
+	<body class = "page">
+	<div class = "shell">
 		<!-- Folder side nav -->
-		<nav class="left-tabs">
-		<a class="left-tab left-tab--active" href="#hero">Home</a>
-		<a class="left-tab" href="#projects">Work</a>
-		<a class="left-tab" href="#about">About</a>
-		<a class="left-tab" href="#contact">Contact</a>
+		<nav class = "left-tabs">
+		<a class = "left-tab left-tab--active" href = "#hero">Home</a>
+		<a class = "left-tab" href = "#projects">Work</a>
+		<a class = "left-tab" href = "#about">About</a>
+		<a class = "left-tab" href = "#contact">Contact</a>
 		</nav>
 
 		<!-- Page stack: background shape + main page -->
-		<div class="page-stack">
-		<div class="page-backdrop"></div>
+		<div class = "page-stack">
+		<div class = "page-backdrop"></div>
 
-		<div class="main-page">
-			<main class="layout">
+		<div class = "main-page">
+			<main class = "layout">
 			<!-- Hero board -->
-			<section class="board board-hero" id="hero">
-				<header class="board-header">
-				<div class="board-title-group">
-					<h1 class="brand-name">Adelia Widyasari</h1>
+			<section class = "board board-hero" id = "hero">
+				<header class = "board-header">
+				<div class = "board-title-group">
+					<h1 class = "brand-name">Adelia Widyasari</h1>
 				</div>
 				</header>
 
-				<p class="brand-intro">
-				She Codes Australia | Day of AI Australia | Computer Science Student and Graphic Designer
+				<p class = "brand-intro">
+				Hi! I'm a Computer Science Student and Graphic Designer that like to dabble around in a lot of side quests. Take a look at some of the things I've done so far!
 				</p>
 
-				<div class="photo-widget">
+				<div class = "photo-widget">
 					<img
-						src="/adelia_pfp.jpg"
-						alt="Adelia Widyasari"
-						class="photo-widget__img"
+						src = "/adelia_pfp.jpg"
+						alt = "Adelia Widyasari"
+						class = "photo-widget__img"
 					/>
+					<div class = "paperclip-widget">
+					<img
+						src = "/public/extra/paperclip.png"
+						alt = ""
+						class = "paperclip-widget__img"
+					/>
+					</div>
 				</div>
 			</section>
 
+
 			<!-- Featured projects board -->
-			<section class="board board-projects" id="projects">
-				<header class="board-section-header">
-				<h2 class="section-title">Work</h2>
-				<div class="section-filters">
-					<span class="tag-pill">Coding</span>
-					<span class="tag-pill">Web Design</span>
-					<span class="tag-pill">Graphic Design</span>
-					<span class="tag-pill">Photography</span>
+			<section class = "board board-projects" id = "projects">
+				<header class = "board-section-header">
+				<h2 class = "section-title">Work and Projects</h2>
+				<div class = "section-filters">
+					<span class = "tag-pill">Computer Science</span>
+					<span class = "tag-pill">Coding</span>
+					<span class = "tag-pill">Web Design</span>
+					<span class = "tag-pill">Graphic Design</span>
+					<span class = "tag-pill">Photography</span>
 				</div>
 				</header>
 
-				<div class="projects-grid">
-				{projects.map((project) => (
-					<article class="project-card project-card--featured">
-					<header class="project-header">
-						<div class="project-title-group">
-						<h3 class="project-title">{project.title}</h3>
-						<span class="project-year">{project.year}</span>
-						</div>
-					</header>
+				<div class="projects-carousel" data-carousel>
+					<button type="button" class="carousel-nav carousel-nav--left" data-prev></button>
 
-					<div class="project-thumbnail">
-						<div class="thumbnail-placeholder">
-						<span>Project preview</span>
-						</div>
+					<div class="projects-carousel__track">
+						{projects.map((project, index) => (
+						<article
+							class="project-card carousel-slide"
+							data-slide-index={index}
+						>
+							<header class="project-header">
+							<div class="project-title-group">
+								<h3 class="project-title">{project.title}</h3>
+								<span class="project-year">{project.year}</span>
+							</div>
+							</header>
+
+							<div class="project-thumbnail">
+							<img
+								src={project.thumbnail}
+								alt={project.title}
+								class="project-thumbnail__img"
+							/>
+							</div>
+
+							<p class="project-description">{project.description}</p>
+
+							<a href={project.link} class="project-link">
+							View project
+							</a>
+						</article>
+						))}
 					</div>
 
-					<p class="project-description">{project.description}</p>
-
-					<a href={project.link} class="project-link">
-						View project
-					</a>
-					</article>
-				))}
+					<button type="button" class="carousel-nav carousel-nav--right" data-next></button>
 				</div>
+
+				<script is:inline>
+					const container = document.querySelector("[data-carousel]");
+
+					if (container) {
+						const slides = Array.from(
+						container.querySelectorAll(".carousel-slide")
+						);
+
+						const previousButton = container.querySelector("[data-prev]");
+						const nextButton = container.querySelector("[data-next]");
+
+						let current = 0;
+
+						function normalize(n, total) {
+						return ((n % total) + total) % total;
+						}
+
+						function updateCarousel() {
+						const total = slides.length;
+
+						if (!total) return;
+
+						const cardWidth = slides[0].getBoundingClientRect().width;
+						const gap = 24;
+						const spacing = cardWidth + gap;
+
+						slides.forEach((slide, i) => {
+							let diff = i - current;
+
+							if (diff > total / 2) diff -= total;
+							if (diff < -total / 2) diff += total;
+
+							const x = diff * spacing;
+							const scale = diff === 0 ? 1 : 0.9;
+							const opacity =
+							Math.abs(diff) > 2 ? 0 : diff === 0 ? 1 : 0.35;
+
+							slide.style.transform =
+							`translateX(calc(-50% + ${x}px)) scale(${scale})`;
+
+							slide.style.opacity = String(opacity);
+							slide.style.zIndex = String(100 - Math.abs(diff));
+							slide.classList.toggle("is-active", diff === 0);
+						});
+						}
+
+						previousButton?.addEventListener("click", () => {
+						current = normalize(current - 1, slides.length);
+						updateCarousel();
+						});
+
+						nextButton?.addEventListener("click", () => {
+						current = normalize(current + 1, slides.length);
+						updateCarousel();
+						});
+
+						window.addEventListener("resize", updateCarousel);
+
+						updateCarousel();
+					}
+				</script>
 			</section>
 
 			<!-- About panel -->
-			<aside class="board board-about" id="about">
-				<h2 class="section-title">About</h2>
-				<p class="about-text">
+			<aside class = "board board-about" id = "about">
+				<h2 class = "section-title">Gallery</h2>
+				<p class = "about-text">
 				miao
 				</p>
-				<span><a href="#contact" class="primary-button">Say hello</a></span>
+				<span><a href = "#contact" class = "primary-button">Say hello</a></span>
 			</aside>
 			</main>
 
 			<!-- Footer inside main page -->
-			<footer class="footer" id="contact">
-			<div class="footer-inner">
+			<footer class = "footer" id = "contact">
+			<div class = "footer-inner">
 				<span>{new Date().getFullYear()} Adelia Widyasari</span>
-				<nav class="footer-links">
-				<a href="https://www.behance.net/adelia_widyasari" target="_blank"
+				<nav class = "footer-links">
+				<a href = "https://www.behance.net/adelia_widyasari" target = "_blank"
 					>Behance</a
 				>
-				<a href="https://github.com/AWZO" target="_blank">GitHub</a>
+				<a href = "https://github.com/AWZO" target = "_blank">GitHub</a>
 				</nav>
 			</div>
 			</footer>
